@@ -1,8 +1,8 @@
 package nh.demo.plantify.rose;
 
-import nh.demo.plantify.care.CareSuggestion;
-import nh.demo.plantify.care.CareSuggestionFactory;
-import nh.demo.plantify.plant.PlantType;
+import nh.demo.plantify.care.suggestion.CareSuggestion;
+import nh.demo.plantify.care.suggestion.CareSuggestionFactory;
+import nh.demo.plantify.shared.PlantType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

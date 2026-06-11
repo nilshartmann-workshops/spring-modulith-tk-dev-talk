@@ -1,11 +1,18 @@
 package nh.demo.plantify.care;
 
-import nh.demo.plantify.plant.PlantType;
+import nh.demo.plantify.care.suggestion.CareSuggestion;
+import nh.demo.plantify.care.suggestion.CareSuggestionService;
+import nh.demo.plantify.plant.PlantRegisteredEvent;
+import nh.demo.plantify.shared.PlantType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.modulith.events.ApplicationModuleListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -25,8 +32,12 @@ public class CareService {
         this.careSuggestionService = careSuggestionService;
     }
 
-    @Transactional
-    public void setupInitialCareTasks(UUID plantId, PlantType plantType, String location) {
+    @ApplicationModuleListener(propagation = Propagation.REQUIRES_NEW)
+    void onPlantRegistered(PlantRegisteredEvent event) {
+        setupInitialCareTasks(event.plantId(), event.plantType(), event.location());
+    }
+
+    private void setupInitialCareTasks(UUID plantId, PlantType plantType, String location) {
         var suggestionsForPlant = careSuggestionService.getBestSuggestionsByPlantType(
             plantType,
             location
