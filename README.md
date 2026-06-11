@@ -8,8 +8,8 @@ This repository contains the code of my talk "Modularisierung pragmatisch: Ein p
 
 - This repository contains four branches with different states of the application:
     - `main`: initial code base used for live coding
-    - [`schritte`](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/tree/prepare): this contains all code that I intendend to show. In the [commit list of that branch](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/commits/schritte/) you find single commits each with one (sub)topic we discussed. **Probably the best way to "get started" with this application and the talk.**
-    [`live_coding`](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/tree/live_coding): that is the code that I wrote during the talk
+    - [`schritte`](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/tree/schritte): this contains all code that I intendend to show. In the [commit list of that branch](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/commits/schritte/) you find single commits each with one (sub)topic we discussed. **Probably the best way to "get started" with this application and the talk,** just look at the Git diff for each commit. 
+    - [`live_coding`](https://github.com/nilshartmann-workshops/spring-modulith-tk-dev-talk/tree/live_coding): that is the code that I wrote during the talk
 
 
 # Examples
